@@ -1,0 +1,27 @@
+name: Develop Workflow
+
+on:
+  pull_request:
+    branches:
+        - develop
+
+jobs:
+  develop:
+    name: test deployment
+    runs-on: ubuntu-latest
+    steps:
+        - name: checking out repository
+          uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+
+        - name: setting up nodejs
+          uses: actions/setup-node@v4
+          with:
+            node-version: 18
+            cache: npm
+
+        - name: dependence develop
+          run: npm ci
+        - name: build site develop
+          run: npm run build
