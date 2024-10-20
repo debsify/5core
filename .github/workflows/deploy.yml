@@ -9,7 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      content: write
       pages: write
       id-token: write
     environment:
